@@ -1,5 +1,9 @@
 import localFont from "next/font/local";
+import { Outfit, Outfit } from "next/font/google";
 import "./globals.css";
+import Header from "./_components/Header";
+
+const outfit = Outfit({ subsets: ["latin"] });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,9 +24,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${outfit.variable} ${outfit.variable} antialiased`}>
+        <Header />
         {children}
       </body>
     </html>
