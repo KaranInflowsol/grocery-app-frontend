@@ -1,7 +1,8 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { LayoutGrid, Search, ShoppingBag } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,8 +11,22 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import GlobalApi from "../_utils/GlobalApi";
 
 function Header() {
+  const [categoryList, setCategoryList] = useState([]);
+
+  useEffect(() => {
+    getCategoryList();
+  }, []);
+
+  const getCategoryList = () => {
+    GlobalApi.getCatgory().then((resp) => {
+      setCategoryList(resp.data.data);
+      console.log("categories ", resp.data.data);
+    });
+  };
+
   return (
     <div className="p-5 shadow-md flex justify-between">
       <div className="flex items-center gap-8">
@@ -26,10 +41,18 @@ function Header() {
           <DropdownMenuContent>
             <DropdownMenuLabel>Brows Category</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            {categoryList.map((category, index) => (
+              <DropdownMenuItem key={category.id || index}>
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${category.icon.url}`}
+                  unoptimized={true}
+                  alt="icon"
+                  width={23}
+                  height={23}
+                />
+                <h2>{category.name}</h2>
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
         <div className="md:flex gap-3 items-center border rounded-full p-2 px-5 hidden">
