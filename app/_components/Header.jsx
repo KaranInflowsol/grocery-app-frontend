@@ -44,7 +44,11 @@ function Header() {
             {categoryList.map((category, index) => (
               <DropdownMenuItem key={category.id || index}>
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${category.icon.url}`}
+                  src={
+                    process.env.NEXT_PUBLIC_BACKEND_BASE_URL +
+                    (category.icon[0]?.formats?.small?.url ||
+                      category.icon[0]?.url)
+                  }
                   unoptimized={true}
                   alt="icon"
                   width={23}
