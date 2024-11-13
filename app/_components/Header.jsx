@@ -28,7 +28,7 @@ function Header() {
   };
 
   return (
-    <div className="p-5 shadow-md flex justify-between">
+    <div className="p-5 shadow-sm flex justify-between">
       <div className="flex items-center gap-8">
         <Image src="/logo1.png" alt="Scandcn Image" width={120} height={100} />
         <DropdownMenu>
@@ -51,8 +51,8 @@ function Header() {
                   }
                   unoptimized={true}
                   alt="icon"
-                  width={23}
-                  height={23}
+                  width={28}
+                  height={28}
                 />
                 <h2>{category.name}</h2>
               </DropdownMenuItem>
