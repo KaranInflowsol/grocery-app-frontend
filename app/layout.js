@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Outfit, Outfit } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
 
@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${outfit.variable} antialiased`}>
+      <body className={`${outfit.className} antialiased`}>
         <Header />
         {children}
       </body>
