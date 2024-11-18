@@ -2,11 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function CategoryList({ categoryList = [] }) {
+function TopCategoryList({ categoryList }) {
   return (
-    <div className="mt-5 w-full cursor-pointer">
-      <h2 className="text-green-600 font-bold text-2xl">Shop by category</h2>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8  pt-5">
+    <div>
+      <div className="flex gap-5 mt-2 overflow-auto mx-7 md:mx-20 justify-center">
         {categoryList.map((category, index) => (
           <Link
             href={"/products-category/" + category.name}
@@ -31,4 +30,4 @@ function CategoryList({ categoryList = [] }) {
   );
 }
 
-export default CategoryList;
+export default TopCategoryList;

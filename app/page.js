@@ -4,6 +4,7 @@ import ProductList from "./_components/ProductList";
 import Slider from "./_components/Slider";
 import GlobalApi from "./_utils/GlobalApi";
 import Footer from "./_components/Footer";
+import TopCategoryList from "./(routes)/products-category/_components/TopCategoryList";
 
 export default async function Home() {
   const sliderList = await GlobalApi.getSliders();
@@ -28,6 +29,9 @@ export default async function Home() {
       ></Image> */}
 
       <Footer />
+
+      {/* top categoryList */}
+      <TopCategoryList categoryList={categoryList} />
     </div>
   );
 }
