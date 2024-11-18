@@ -16,6 +16,7 @@ function CategoryList({ categoryList = [] }) {
               height={50}
               width={50}
               alt="icon"
+              className="hover:scale-105"
             />
             <h2>{category.name}</h2>
           </div>
