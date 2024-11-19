@@ -10,7 +10,7 @@ function TopCategoryList({ categoryList }) {
           <Link
             href={"/products-category/" + category.name}
             key={index}
-            className="flex flex-col items-center bg-green-50 gap-2 p-3 rounded-lg group cursor-pointer hover:bg-green-500"
+            className="flex flex-col items-center bg-green-50 gap-2 p-3 rounded-lg group cursor-pointer hover:bg-green-500 w-[150px] min-w-[100px ]"
           >
             <Image
               src={
