@@ -48,3 +48,5 @@ function ProductItem({ product }) {
 }
 
 export default ProductItem;
+
+// product items page is here
